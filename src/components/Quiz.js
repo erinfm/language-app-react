@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-function Welcome() {
-  const WelcomeContainer = styled.div`
+function Quiz() {
+  const QuizContainer = styled.div`
     padding: 2rem 2rem;
     background: #8559da;
     border-radius: 6px;
@@ -44,12 +44,12 @@ function Welcome() {
 
   return (
     <>
-      <WelcomeContainer>
-        <Title>Welcome, user!</Title>
-        <Button>Test your Skills</Button>
-      </WelcomeContainer>
+      <QuizContainer>
+        <Title>Let's learn!</Title>
+        <Button>Start Quiz</Button>
+      </QuizContainer>
     </>
   );
 }
 
-export default Welcome;
+export default Quiz;

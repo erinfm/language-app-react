@@ -8,7 +8,7 @@ function Header() {
     align-items: center;
     background: #fff;
     border-bottom: 3px solid #ede7f6;
-    height: 4rem;
+    height: 3.5rem;
     width: 100%;
   `;
 
@@ -17,6 +17,11 @@ function Header() {
     font-weight: 600;
     color: #651fff;
     cursor: pointer;
+    transition: background 0.5s ease;
+
+    &:hover {
+      color: #5c1cea;
+    }
   `;
 
   return (
