@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-function Welcome() {
+function Welcome(props) {
   const WelcomeContainer = styled.div`
     padding: 2rem 2rem;
     background: #8559da;
@@ -46,7 +46,7 @@ function Welcome() {
     <>
       <WelcomeContainer>
         <Title>Welcome, user!</Title>
-        <Button>Test your Skills</Button>
+        <Button onClick={props.handleClick}>Test your Skills</Button>
       </WelcomeContainer>
     </>
   );

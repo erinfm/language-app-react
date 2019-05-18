@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-function Quiz() {
+function Quiz(props) {
   const QuizContainer = styled.div`
     padding: 2rem 2rem;
     background: #8559da;
@@ -46,7 +46,7 @@ function Quiz() {
     <>
       <QuizContainer>
         <Title>Let's learn!</Title>
-        <Button>Start Quiz</Button>
+        <Button onClick={props.handleClick}>Start Quiz</Button>
       </QuizContainer>
     </>
   );

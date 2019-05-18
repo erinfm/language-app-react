@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Welcome from "./Welcome";
 import Scores from "./Scores";
+import Quiz from "./Quiz";
 import styled from "styled-components/macro";
 
 function MainContainer() {
@@ -32,12 +33,24 @@ function MainContainer() {
         ".";
     }
   `;
+  const [isQuiz, setIsQuiz] = useState(false);
+
+  const handleClick = e => {
+    console.log(e.target);
+    isQuiz ? setIsQuiz(false) : setIsQuiz(true);
+  };
 
   return (
     <>
       <Container>
-        <Welcome />
-        <Scores />
+        {!isQuiz ? (
+          <>
+            <Welcome handleClick={handleClick} />
+            <Scores />
+          </>
+        ) : (
+          <Quiz handleClick={handleClick} />
+        )}
       </Container>
     </>
   );
