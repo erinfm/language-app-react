@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Welcome from "./Welcome";
 import Scores from "./Scores";
-import Quiz from "./Quiz";
 import styled from "styled-components/macro";
 
-function MainContainer() {
+function MainContainer(props) {
   const Container = styled.div`
     padding: 4rem 2rem;
     display: grid;
     grid-gap: 2rem;
-    height: auto;
+    height: 100%;
     width: 100%;
     grid-template-columns: repeat(6, auto);
     grid-template-row: repeat(4, 1fr);
@@ -33,24 +32,12 @@ function MainContainer() {
         ".";
     }
   `;
-  const [isQuiz, setIsQuiz] = useState(false);
-
-  const handleClick = e => {
-    console.log(e.target);
-    isQuiz ? setIsQuiz(false) : setIsQuiz(true);
-  };
 
   return (
     <>
       <Container>
-        {!isQuiz ? (
-          <>
-            <Welcome handleClick={handleClick} />
-            <Scores />
-          </>
-        ) : (
-          <Quiz handleClick={handleClick} />
-        )}
+        <Welcome handleClick={props.handleClick} />
+        <Scores />
       </Container>
     </>
   );
