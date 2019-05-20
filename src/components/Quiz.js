@@ -5,9 +5,10 @@ function Quiz(props) {
   const QuizContainer = styled.div`
     padding: 2rem 2rem;
     background: #8559da;
-    height: 100%;
+    height: calc(100vh - 3.5rem);
 
     @media (max-width: 700px) {
+      height: 100vh;
     }
   `;
 
@@ -35,10 +36,40 @@ function Quiz(props) {
     }
   `;
 
+  const Question = styled.span`
+    position: absolute;
+    top: 50%;
+    background: #fff;
+    font-size: 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+  `;
+
+  const OptionBlock = styled.div`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+  `;
+  const Option = styled(Question)`
+    position: static;
+    background: lightblue;
+  `;
+
   return (
     <>
       <QuizContainer>
         <Title>Let's learn!</Title>
+        <Question>Question</Question>
+        <OptionBlock>
+          <Option>Answer</Option>
+          <Option>Answer</Option>
+          <Option>Answer</Option>
+        </OptionBlock>
         <Button onClick={props.handleClick}>Start Quiz</Button>
       </QuizContainer>
     </>

@@ -8,7 +8,15 @@ function App() {
   const [isQuiz, setIsQuiz] = useState(true);
   const AppContainer = styled.div`
     background: #f5f5f5;
-    overflow: hidden;
+
+    @media (max-width: 700px) {
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
   `;
 
   const handleClick = e => {
