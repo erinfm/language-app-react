@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
 
-function Quiz(props) {
+function Quiz() {
   const QuizContainer = styled.div`
     padding: 2rem 2rem;
     background: #8559da;
@@ -60,20 +60,34 @@ function Quiz(props) {
     background: lightblue;
   `;
 
-  return (
-    <>
-      <QuizContainer>
-        <Title>Let's learn!</Title>
-        <Question>Question</Question>
-        <OptionBlock>
-          <Option>Answer</Option>
-          <Option>Answer</Option>
-          <Option>Answer</Option>
-        </OptionBlock>
-        <Button onClick={props.handleClick}>Start Quiz</Button>
-      </QuizContainer>
-    </>
-  );
+  const [quizState, setQuizState] = useState("initial");
+
+  if (quizState === "initial") {
+    return (
+      <>
+        <QuizContainer>
+          <Title>Let's learn!</Title>
+          <Button onClick={() => setQuizState("round1")}>Start Quiz</Button>
+        </QuizContainer>
+      </>
+    );
+  }
+
+  if (quizState === "round1") {
+    return (
+      <>
+        <QuizContainer>
+          <Title>Let's learn!</Title>
+          <Question>Question</Question>
+          <OptionBlock>
+            <Option>Answer</Option>
+            <Option>Answer</Option>
+            <Option>Answer</Option>
+          </OptionBlock>
+        </QuizContainer>
+      </>
+    );
+  }
 }
 
 export default Quiz;
