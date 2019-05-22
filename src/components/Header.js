@@ -22,12 +22,16 @@ function Header() {
     &:hover {
       color: #5c1cea;
     }
+
+    @media (max-width: 700px) {
+      font-size: 1.25rem;
+    }
   `;
 
   return (
     <>
       <NavBar>
-        <Title>Header</Title>
+        <Title>Untitled App</Title>
       </NavBar>
     </>
   );

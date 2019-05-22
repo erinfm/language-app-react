@@ -6,7 +6,7 @@ function Quiz() {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2rem 10rem;
+    padding: 2rem 12rem;
     background: #f5f5f5;
     height: calc(100vh - 3.5rem);
 
@@ -21,12 +21,22 @@ function Quiz() {
     font-weight: 600;
     color: #555;
     margin-bottom: 2rem;
+
+    @media (max-width: 700px) {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
   `;
 
   const Subtitle = styled(Title)`
     color: #444;
     font-size: 1.25rem;
     line-height: 2rem;
+    font-weight: 400;
+
+    @media (max-width: 700px) {
+      font-size: 1rem;
+    }
   `;
 
   const Button = styled.button`
@@ -43,11 +53,6 @@ function Quiz() {
     &:hover {
       background: #5c1cea;
     }
-
-    // // Margin keeps elements vertically centered on mobile devices
-    // @media (max-width: 700px) {
-    //   margin-bottom: 3.5rem;
-    // }
   `;
 
   const TopicList = styled.div`
@@ -82,21 +87,61 @@ function Quiz() {
     background: lightblue;
   `;
 
-  const VocabBlock = styled.div`
+  const VocabContainer = styled.div`
     display: flex;
-    font-size: 2rem;
+    width: 600px;
+    justify-content: space-between;
 
     @media (max-width: 700px) {
       flex-direction: column;
-      font-size: 1.5rem;
+      width: 100%;
+    }
+  `;
+
+  const VocabBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 700px) {
+      flex-direction: row;
+    }
+  `;
+
+  // const VocabImageBlock = styled(VocabBlock)``;
+
+  const VocabImage = styled.div`
+    height: 8rem;
+    width: 8rem;
+    border: 2px solid #aaa;
+    margin-top: 1rem;
+
+    @media (max-width: 700px) {
+      height: 4rem;
+      width: 4rem;
     }
   `;
 
   const Vocab = styled.p`
-    padding-right: 10rem;
+    font-size: 2rem;
+    align-self: center;
+    padding: 1rem;
 
     @media (max-width: 700px) {
-      padding: 1.5rem 0;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+  `;
+
+  const ContBtn = styled.p`
+    color: #651fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2rem 2rem 0 2rem;
+    text-align: right;
+    cursor: pointer;
+
+    @media (max-width: 700px) {
+      font-size: 1rem;
     }
   `;
 
@@ -133,12 +178,22 @@ function Quiz() {
       <>
         <QuizContainer>
           <Title>Basic Colours</Title>
-          <Subtitle>Here are some colours!</Subtitle>
-          <VocabBlock>
-            <Vocab>Rojo</Vocab>
-            <Vocab>Azul</Vocab>
-            <Vocab>Verde</Vocab>
-          </VocabBlock>
+          <Subtitle>Take a look at the colours below.</Subtitle>
+          <VocabContainer>
+            <VocabBlock>
+              <VocabImage style={{ backgroundColor: "Red" }} />
+              <Vocab>Rojo</Vocab>
+            </VocabBlock>
+            <VocabBlock>
+              <VocabImage style={{ backgroundColor: "DodgerBlue" }} />
+              <Vocab>Azul</Vocab>
+            </VocabBlock>
+            <VocabBlock>
+              <VocabImage style={{ backgroundColor: "LimeGreen" }} />
+              <Vocab>Verde</Vocab>
+            </VocabBlock>
+          </VocabContainer>
+          <ContBtn>Continue →</ContBtn>
           <MarginBlock />
         </QuizContainer>
       </>
