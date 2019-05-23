@@ -11,12 +11,13 @@ function Quiz() {
     height: calc(100vh - 3.5rem);
 
     @media (max-width: 700px) {
+      height: calc(100vh - 3rem);
       padding: 2rem 2rem;
+      justify-content: space-between;
     }
   `;
 
   const Title = styled.h1`
-    top: 20vh;
     font-size: 2rem;
     font-weight: 600;
     color: #555;
@@ -24,6 +25,7 @@ function Quiz() {
 
     @media (max-width: 700px) {
       font-size: 1.5rem;
+
       margin-bottom: 1rem;
     }
   `;
@@ -95,6 +97,7 @@ function Quiz() {
     @media (max-width: 700px) {
       flex-direction: column;
       width: 100%;
+      // max-height: 100px;
     }
   `;
 
@@ -107,12 +110,10 @@ function Quiz() {
     }
   `;
 
-  // const VocabImageBlock = styled(VocabBlock)``;
-
   const VocabImage = styled.div`
     height: 8rem;
     width: 8rem;
-    border: 2px solid #aaa;
+    border: 3px solid #aaa;
     margin-top: 1rem;
 
     @media (max-width: 700px) {
@@ -128,20 +129,26 @@ function Quiz() {
 
     @media (max-width: 700px) {
       font-size: 1.5rem;
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
   `;
 
-  const ContBtn = styled.p`
+  const ContBtn = styled.span`
     color: #651fff;
     font-size: 1.25rem;
     font-weight: 600;
     margin: 2rem 2rem 0 2rem;
     text-align: right;
     cursor: pointer;
+    transition: color 0.5s ease;
+
+    &:hover {
+      color: #5a1be5;
+    }
 
     @media (max-width: 700px) {
       font-size: 1rem;
+      margin: 0.5rem 2rem 0 2rem;
     }
   `;
 
@@ -193,7 +200,24 @@ function Quiz() {
               <Vocab>Verde</Vocab>
             </VocabBlock>
           </VocabContainer>
-          <ContBtn>Continue →</ContBtn>
+          <ContBtn onClick={() => setQuizState("round2")}>Continue →</ContBtn>
+          <MarginBlock />
+        </QuizContainer>
+      </>
+    );
+  }
+
+  if (quizState === "round2") {
+    return (
+      <>
+        <QuizContainer>
+          <Title>Let's learn!</Title>
+          <Question>Question</Question>
+          <OptionBlock>
+            <Option>Answer</Option>
+            <Option>Answer</Option>
+            <Option>Answer</Option>
+          </OptionBlock>
           <MarginBlock />
         </QuizContainer>
       </>

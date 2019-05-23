@@ -10,6 +10,11 @@ function Header() {
     border-bottom: 3px solid #ede7f6;
     height: 3.5rem;
     width: 100%;
+
+    @media (max-width: 700px) {
+      font-size: 1.25rem;
+      height: 3rem;
+    }
   `;
 
   const Title = styled.h1`
@@ -20,7 +25,7 @@ function Header() {
     transition: background 0.5s ease;
 
     &:hover {
-      color: #5c1cea;
+      color: #5a1be5;
     }
 
     @media (max-width: 700px) {
