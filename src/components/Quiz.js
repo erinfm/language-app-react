@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Round1 from "./Round1";
+import Round2 from "./Round2";
 import styled from "styled-components/macro";
 
 function Quiz() {
@@ -184,23 +186,7 @@ function Quiz() {
     return (
       <>
         <QuizContainer>
-          <Title>Basic Colours</Title>
-          <Subtitle>Take a look at the colours below.</Subtitle>
-          <VocabContainer>
-            <VocabBlock>
-              <VocabImage style={{ backgroundColor: "Red" }} />
-              <Vocab>Rojo</Vocab>
-            </VocabBlock>
-            <VocabBlock>
-              <VocabImage style={{ backgroundColor: "DodgerBlue" }} />
-              <Vocab>Azul</Vocab>
-            </VocabBlock>
-            <VocabBlock>
-              <VocabImage style={{ backgroundColor: "LimeGreen" }} />
-              <Vocab>Verde</Vocab>
-            </VocabBlock>
-          </VocabContainer>
-          <ContBtn onClick={() => setQuizState("round2")}>Continue →</ContBtn>
+          <Round1 />
           <MarginBlock />
         </QuizContainer>
       </>
@@ -211,14 +197,7 @@ function Quiz() {
     return (
       <>
         <QuizContainer>
-          <Title>Let's learn!</Title>
-          <Question>Question</Question>
-          <OptionBlock>
-            <Option>Answer</Option>
-            <Option>Answer</Option>
-            <Option>Answer</Option>
-          </OptionBlock>
-          <MarginBlock />
+          <Round2 />
         </QuizContainer>
       </>
     );
